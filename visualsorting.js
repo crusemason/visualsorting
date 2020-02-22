@@ -269,6 +269,9 @@ function whatAlgorithm(){
     }
     else if(bubsort.checked){
         sort = bub(0);
+    }else{
+	//default selectionsort
+	sort = selectionsort(0);
     }
     return sort;
 }

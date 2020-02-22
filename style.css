@@ -1,0 +1,388 @@
+*{
+	margin:0;
+	padding:0;
+}
+.selected{
+    background-color:#4c8bf5;
+    border:1px solid rgba(0,0,0,.8);
+    width:25px;
+}
+
+#rootwrapper{
+	height:100vh;
+	
+}
+
+.block{
+border:1px solid rgba(0,0,0,.75);
+    width:25px;
+    background-color:grey;
+    
+}
+body{
+	    background-color:rgba(0,0,0,.02);
+	    display:flex;
+	    margin:0,0;
+	    padding:0,0;
+
+}
+#root{
+	width:70%;
+	height:100vh;
+    display:flex;
+    justify-content: center;
+    transform:rotate(180deg);
+    margin-bottom:.1rem;
+   
+}
+
+#settingsiconwrapper{
+	display:flex;
+	justify-content:center;
+	margin-top:1rem;
+	height:30px;
+	width:30px;
+
+}
+#settingswrapper{
+	margin-right:6.5rem;
+	height:100vh;
+	min-height:600px;
+	width:50px;
+	background-color:rgba(0,0,0,.03);
+	border:1px solid rgba(0,0,0,.3);
+}
+
+#algorithmwrapper{
+	display:none;
+	margin-left: 1rem;
+}
+
+#settingsheader{
+	display:none;
+	height:65px;
+	width:75%;
+	align-items: center;
+	justify-content:center;
+	font-family: 'arial';
+	font-size:2.15em;
+	font-weight: bold;
+	color:rgba(0,0,0,.9);
+	margin-left:.3rem;
+}
+
+#settingsiconwrapperwrapper{
+	width:100%;
+	height:10%;
+	display:flex;
+	justify-content:center;
+}
+
+#algorithmheader{
+	font-size:.9em;
+	display:none;
+	height:40px;
+}
+
+/* init hidden */
+#rangewrapper{
+	width:200px;
+	display:none;
+	justify-content: center;
+	align-items: center;
+}
+
+/* init hidden */
+#speedwrapper{
+justify-content: center;
+	align-items: center;
+	display:none;
+}
+#speedtitle{
+	margin-top:3rem;
+	margin-bottom:1rem;
+}
+
+/* init hidden */
+#speedheader{
+
+	display:none;
+	margin-top:1rem;
+}
+#speedoutput{
+	margin-left: .5em;
+}
+
+/* init hidden */
+#start{
+	height:40px;
+	background-color:rgba(0,0,0,.003);
+	border:2px solid rgba(0,0,0,.3);
+	border-radius:3px;
+	color:rgba(0,0,0,.8);
+	width:80px;
+	display:none;
+	margin-top:auto;
+	margin-bottom:2rem;
+	justify-content: center;
+	align-items: center;
+	margin-right:1rem;
+	font-family: 'arial';
+
+}
+
+#start:hover{
+	background-color:rgba(0,0,0,.05);
+}
+
+#reset{
+	height:40px;
+	background-color:rgba(0,0,0,.003);
+	border:2px solid rgba(0,0,0,.3);
+	border-radius:3px;
+	color:rgba(0,0,0,.8);
+	width:80px;
+	display:none;
+	margin-top:auto;
+	margin-bottom:2rem;
+	justify-content: center;
+	align-items: center;
+	font-family: arial;
+}
+
+#reset:hover{
+	background-color:rgba(0,0,0,.05);
+}
+
+h1 {
+
+	font-size:.9em;
+  background: linear-gradient(#ffffff 0%, #ffffff 49%, #000000 50%, #000000 51%, #ffffff 52%, #ffffff 100%);
+}
+
+h2 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'arial';
+}
+#startwrapper{
+	position: absolute;
+	bottom:0;
+	display:flex;
+	margin-left: 6px;
+	justify-content:center;
+	
+}
+h2:before,
+h2:after {
+    content: '';
+    border-top: 2px solid;
+    margin: 0 20px 0 0;
+    flex: 1 0 20px;
+}
+
+h2:after {
+    margin: 0 0 0 20px;
+}
+
+#sizeheader{
+	margin-top: 2rem;
+	margin-bottom:1rem;
+	display:none;
+}
+
+
+/* slider */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+
+
+input[type="range"]{
+  -webkit-appearance:none;
+
+  background: linear-gradient(to right, #808080 0%, #B0B0B0 100%);
+  background-size:150px 10px;
+  background-position:center;
+  background-repeat:no-repeat;
+  overflow:hidden;
+  outline: none;
+}
+
+input[type="range"]:first-of-type{
+}
+
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  max-width:2.5px;
+  height:20px;
+  background:black;
+  position:relative;
+  z-index:3;
+  box-shadow:0 0 5px 0 rgba(0,0,0,0.3);
+}
+
+input[type="range"]::-webkit-slider-thumb:after{
+  content:" ";
+  
+  position:absolute;
+  z-index:1;
+  right:20px;
+  top:5px;
+  background: rgba(0,0,0,.3);
+  background: linear-gradient(to right, #f088fc 1%, #AC6CFF 70%);
+}
+
+
+#demo{
+	margin-left:.5em;
+}
+
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  
+  //CSS
+#startwrapper{
+	margin-top:13rem;
+} 
+
+#root{
+	height:100vh;
+}
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  
+  //CSS
+
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+/* half screen */
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+  //CSS
+
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    #root{
+  	background-color: blue;
+  }
+  //CSS
+  
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  #start{
+	height:30px;
+	background-color:rgba(0,0,0,.003);
+	border:2px solid rgba(0,0,0,.3);
+	border-radius:3px;
+	color:rgba(0,0,0,.8);
+	width:60px;
+	display:none;
+	margin-top:auto;
+	margin-bottom:2rem;
+	justify-content: center;
+	align-items: center;
+	margin-right:1rem;
+	font-family: 'arial';
+
+}
+#start:hover{
+	background-color:rgba(0,0,0,.05);
+}
+
+#reset{
+	height:30px;
+	background-color:rgba(0,0,0,.003);
+	border:2px solid rgba(0,0,0,.3);
+	border-radius:3px;
+	color:rgba(0,0,0,.8);
+	width:60px;
+	display:none;
+	margin-top:auto;
+	margin-bottom:2rem;
+	justify-content: center;
+	align-items: center;
+	font-family: arial;
+}
+
+#reset:hover{
+	background-color:rgba(0,0,0,.05);
+}
+}
+
+  //CSS
+  
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+  //CSS
+  
+}

@@ -1,0 +1,183 @@
+<html>
+ <head>
+ 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+     <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
+   	 <div id="settingswrapper">
+   	 	<div id="settingsiconwrapperwrapper">
+   	 	<div id="settingsiconwrapper">
+   	 		<i class="fas fa-cog fa-2x"></i>
+   	 	</div>
+   	 	<div id="settingsheader">
+	 		Settings
+   	 	</div>
+   	 	</div>
+   	 	<div id="algorithmheader">
+   	 		<div id="algorithmtitle"> <h2 id="algorithmh2" class="one"><span>Algorithms</span></h1></div>
+   	 	</div>
+   	 	<div id="algorithmwrapper" onclick="event.cancelBubble=true;">
+   	 		 <input type="radio" id="selectionsort" name="algorithm" value="selectionsort">
+			  <label for="male">selection sort</label><br>
+             <input type="radio" id="bubblesort" name="algorithm" value="female">
+             <label for="female">bubble sort</label><br>
+             <input type="radio" id="other" name="algorithm" value="other">
+             <label for="other">Other</label>
+   	 	</div>
+   	 	<div id="sizeheader">
+   	 		<div id="sizetitle"> <h2 id="sizeh2" class="one"><span>Size</span></h1></div>
+   	 	</div>
+	 	<div id="rangewrapper" onclick="event.cancel">
+
+		<input type="range" id="myRange" value="25"
+         min="1" max="50" class="slide">
+  		<p><span id="demo"></span></p>
+		
+		</div>
+
+  		
+		<div id="speedheader">
+   	 		<div id="speedtitle"> <h2 id="speedh2" class="one"><span>Delay</span></h1></div>
+   	 	</div>
+   	 	<div id="speedwrapper">
+		<input type="range" id="mySpeed" value="500"
+         min="1" max="1000" class="slide">
+  		<p><span id="speedoutput"></span></p>
+  	
+		</div>
+		
+		
+		
+		<div id="startwrapper">
+		<div id="start" onclick="init()"><div>Start</div></div>
+		<div id="reset" onclick="reset()"><div>Reset</div></div>
+
+	</div>
+   	 </div>
+   	 <div id="rootwrapper">
+     	<div id="root"></div>
+     </div>
+ </body>
+
+ <script>
+ 	//Stoping child from triggering parent
+ 	document.getElementById("rangewrapper").addEventListener("click", function(event) {
+         
+         event.stopPropagation();
+}, false);
+
+ 	//Stoping child from triggering parent
+ 	document.getElementById("speedwrapper").addEventListener("click", function(event) {
+         
+         event.stopPropagation();
+}, false);
+ 	//algorithm
+ 	var selsort = document.getElementById("selectionsort");
+	var bubsort = document.getElementById("bubblesort");
+ 	
+ 	selsort.addEventListener('click',function(){
+ 		console.log(this.value);
+ 	})
+ 	//slider 
+ 	var slider = document.getElementById("myRange");
+ 	var sliderspeed = document.getElementById("mySpeed");
+	var output = document.getElementById("demo");
+	var outputspeed = document.getElementById("speedoutput");
+	outputspeed.innerHTML = sliderspeed.value
+	output.innerHTML = slider.value;
+
+	slider.oninput = function() {
+  		output.innerHTML = (this.value);
+  		N = (this.value-2);
+  	}
+
+  	sliderspeed.oninput = function() {
+  		outputspeed.innerHTML = (this.value);
+  		SPEED = (this.value);
+  	}
+	//hide or show settings
+ 	document.getElementById( 'settingswrapper' ).addEventListener( 'click', function() {
+ 	const mq = window.matchMedia( "(min-width: 768px) and (max-width: 1024px)" );
+	if (mq.matches) {
+		if( this.style.width == '50px' || this.style.width == '' ){
+    	this.style.width = '195px';
+    	document.getElementById('speedwrapper').style.display= "flex";
+    	document.getElementById('rangewrapper').style.display= "flex";
+    	document.getElementById('algorithmwrapper').style.display= "block";
+    	document.getElementById('settingsheader').style.display= "flex";
+    	document.getElementById('settingsiconwrapperwrapper').style.width = "200px";
+    	document.getElementById('algorithmheader').style.display = "block";
+    	document.getElementById('algorithmh2').style.display= "flex";
+    	document.getElementById('sizeh2').style.display= "flex";
+    	document.getElementById('sizeheader').style.display= "block";
+    	document.getElementById('speedheader').style.display= "block";
+		document.getElementById('speedh2').style.display= "flex";
+    	document.getElementById('speedtitle').style.display= "block";
+    	document.getElementById('start').style.display= "flex";
+    	document.getElementById('reset').style.display= "flex";
+
+    	
+    }else{
+    	document.getElementById('reset').style.display= "none";
+    	document.getElementById('start').style.display= "none";
+    	document.getElementById('speedwrapper').style.display= "none";
+    	document.getElementById('rangewrapper').style.display= "none";
+    	document.getElementById('sizeheader').style.display= "none";
+    	document.getElementById('sizeh2').style.display= "none";
+    	document.getElementById('speedheader').style.display= "none";
+    	document.getElementById('speedh2').style.display= "none";
+    	document.getElementById('algorithmwrapper').style.display= "none";
+    	document.getElementById('algorithmh2').style.display= "none";
+    	document.getElementById('settingsheader').style.display= "none";
+    	document.getElementById('settingsiconwrapperwrapper').style.width = "50px";
+
+
+    	this.style.width = '50px';
+    }
+	// window width is at least 500px
+	} else {
+		if( this.style.width == '50px' || this.style.width == '' ){
+    	this.style.width = '200px';
+    	document.getElementById('speedwrapper').style.display= "flex";
+    	document.getElementById('rangewrapper').style.display= "flex";
+    	document.getElementById('algorithmwrapper').style.display= "block";
+    	document.getElementById('settingsheader').style.display= "flex";
+    	document.getElementById('settingsiconwrapperwrapper').style.width = "200px";
+    	document.getElementById('algorithmheader').style.display = "block";
+    	document.getElementById('algorithmh2').style.display= "flex";
+    	document.getElementById('sizeh2').style.display= "flex";
+    	document.getElementById('sizeheader').style.display= "block";
+    	document.getElementById('speedheader').style.display= "block";
+		document.getElementById('speedh2').style.display= "flex";
+    	document.getElementById('speedtitle').style.display= "block";
+    	document.getElementById('start').style.display= "flex";
+    	document.getElementById('reset').style.display= "flex";
+
+    	
+    }else{
+    	document.getElementById('reset').style.display= "none";
+    	document.getElementById('start').style.display= "none";
+    	document.getElementById('speedwrapper').style.display= "none";
+    	document.getElementById('rangewrapper').style.display= "none";
+    	document.getElementById('sizeheader').style.display= "none";
+    	document.getElementById('sizeh2').style.display= "none";
+    	document.getElementById('speedheader').style.display= "none";
+    	document.getElementById('speedh2').style.display= "none";
+    	document.getElementById('algorithmwrapper').style.display= "none";
+    	document.getElementById('algorithmh2').style.display= "none";
+    	document.getElementById('settingsheader').style.display= "none";
+    	document.getElementById('settingsiconwrapperwrapper').style.width = "50px";
+
+
+    	this.style.width = '50px';
+    }
+	// window width is less than 500px
+	}
+    
+      
+    
+}, false );
+ </script>
+  <script src="visualsorting.js"></script>
+</html>
